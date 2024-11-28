@@ -45,15 +45,17 @@
 
         function cartValue() {
 
+            var codePromotion = document.getElementById("promotion").value;
+            console.log(codePromotion)
+
             //Mise en place des variables
             let articles = document.getElementById("articles");
             let selectedArticle = articles.options[articles.selectedIndex].textContent;
             let stringArticle = selectedArticle.split(" ").join("");
             let theArray = Array.from(stringArticle);
             let theNumbers = [];
-            let numberOne = "";
             let price = "";
-            let promo = parseInt(VALID_PROMOTION_CODE.substring(0, 2));
+            let promo = parseInt(codePromotion.substring(0, 2));
             let currentPromo = "";
             let newPrice = "";
 
@@ -64,13 +66,27 @@
                 };
             };
 
-            //Calcul du nouveau prix
-            numberOne = theNumbers[0];
+            //Prix
             price = theNumbers[0] + theNumbers[1];
-            currentPromo = parseInt(price) / promo;
-            newPrice = price - currentPromo;
 
-            alert("La valeur de votre panier est de " + newPrice + "€");
+
+            
+            if (codePromotion === VALID_PROMOTION_CODE) {
+                //Calcul du nouveau prix si promotion
+                currentPromo = parseInt(price) / promo;
+                newPrice = price - currentPromo;
+                price = theNumbers[0] + theNumbers[1];
+                currentPromo = parseInt(price) / promo;
+                newPrice = price -
+                    currentPromo;
+                alert("La valeur de votre panier est de " + newPrice + "€");
+            } else if (!isNaN(codePromotion)) {
+                alert("La valeur de votre panier est de " + price + "€");
+
+            } else if (codePromotion != VALID_PROMOTION_CODE) {
+                alert("code promo non valide")
+
+            }
 
             // CODE HERE !
         }

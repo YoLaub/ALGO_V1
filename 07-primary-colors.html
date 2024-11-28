@@ -35,17 +35,23 @@
 
 <script type="text/javascript">
     function primaryColors() {
+        let colorTranslation = {
+            "green":"vert",
+            "purple":"violet"
+        }
+        
         let colors = document.getElementById("colors");
         let secondaryColor = colors.options[colors.selectedIndex].value;
+        let selectedColor = colorTranslation[secondaryColor] || secondaryColor;
         let primaryColors = ["rouge", "jaune", "bleu"];
 
 
         if (secondaryColor == "green" ){
-            alert( secondaryColor + " est compsé de " + primaryColors[1] + " et de " + primaryColors[2]);
+            alert( selectedColor + " est compsé de " + primaryColors[1] + " et de " + primaryColors[2]);
         }else if (secondaryColor == "purple"){
-            alert( secondaryColor + " est compsé de " + primaryColors[2] + " et de " + primaryColors[0]);
+            alert( selectedColor + " est compsé de " + primaryColors[2] + " et de " + primaryColors[0]);
         }else{
-            alert(secondaryColor + " est compsé de " + primaryColors[0] + " et de " + primaryColors[1])
+            alert(selectedColor + " est compsé de " + primaryColors[0] + " et de " + primaryColors[1])
         }
         // CODE HERE !
     }

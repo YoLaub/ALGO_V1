@@ -66,36 +66,62 @@
     <script type="text/javascript">
         function doYouLikeIt() {
 
-            if (isSalty() && isSweet()) {
-                alert("Beurk... c'est pas bon !");
-            }
-            else if (isPoisoned() || isPoisoned() && isSweet() || isPoisoned() && isSalty() || isPoisoned() && initiation()) {
-                alert("Game Over")
-            }
-            else if (isSalty()) {
-                alert("Hum la bonne sou-soupe salée !");
-            } else if (isSweet()) {
-                alert("Hum la bonne sou-soupe sucrée !");
-            } else if (initiation()) {
-                alert("https://www.lalogemaconnique.fr/v-i-t-r-i-o-l/")
-            } else {
-                alert("Mauvaise combinaison")
-            }
+            /*
+                        if (isPoisoned()) {
+                            alert("Game Over")
+                        } else if (isSalty() && isSweet()) {
+                            alert("Beurk... c'est pas bon !");
+                        } else if (isSalty()) {
+                            alert("Hum la bonne sou-soupe salée !");
+                        } else if (isSweet()) {
+                            alert("Hum la bonne sou-soupe sucrée !");
+                        } else if (initiation()) {
+                            alert("https://www.lalogemaconnique.fr/v-i-t-r-i-o-l/")
+                        } else {
+                            alert("Mauvaise combinaison")
+                        }
+            */
 
+            switch (true) {
 
-            // CODE HERE !
+                case (isPoisoned()):
+                    alert("Game Over");
+                    break;
+
+                case (isSalty() && isSweet()):
+                    alert("Beurk... c'est pas bon !");
+                    break;
+
+                case (isSalty()):
+                    alert("Hum la bonne sou-soupe salée !");
+                    break;
+
+                case (isSweet()):
+                    alert("Hum la bonne sou-soupe sucrée !");
+                    break;
+
+                default:
+                    alert("Soupe à l'eau !")
+            }
         }
+
+
+
+
+        // CODE HERE !
+
 
         function isSalty() {
             let carrots = document.getElementById("carrots").checked;
             let potatoes = document.getElementById("potatoes").checked;
 
-            if (carrots || potatoes) {
+            return carrots || potatoes;
+
+            /*if (carrots || potatoes) {
                 return true;
             } else {
                 return false;
-            }
-            // CODE HERE !
+            }*/
         }
 
         function isSweet() {
@@ -103,33 +129,47 @@
             let whiteChocolate = document.getElementById("whiteChocolate").checked;
             let tomatoes = document.getElementById("tomatoes").checked;
 
-            // CODE HERE !
+            return blackChocolate || whiteChocolate || tomatoes
+
+            /*
             if (blackChocolate || whiteChocolate || tomatoes) {
                 return true;
             } else {
                 return false;
             }
+                */
         }
 
         function isPoisoned() {
             let cyanide = document.getElementById("cyanide").checked;
-            // CODE HERE !
+            let vitriol = document.getElementById("vitriol").checked;
+
+            return cyanide || vitriol;
+
+            /*
             if (cyanide) {
                 return true;
             } else {
                 return false;
             }
+                */
         }
 
+/*
         function initiation() {
             let vitriol = document.getElementById("vitriol").checked;
-            // CODE HERE !
+
+            return vitriol;
+
+            
             if (vitriol) {
                 return true;
             } else {
                 return false;
             }
+                
         }
+        */
     </script>
 </body>
 
